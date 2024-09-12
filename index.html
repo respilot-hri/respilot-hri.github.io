@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>ResPilot</title>
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- <base href="/"> -->
+
+
+<!--     <link rel="apple-touch-icon" href="apple-touch-icon.png"> -->
+  <!-- <link rel="icon" type="image/png" href="img/seal_icon.png"> -->
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <div class="container" id="main">
+        <div class="row">
+            <h2 class="col-md-12 text-center">
+                <b>ResPilot</b>: Teleoperated Finger Gaiting via Gaussian Process Residual Learning<br/>
+                <small>
+                    CoRL 2024
+                </small>
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <ul class="list-inline">
+                    <li>
+                        <a href="https://patricknaughton01.github.io/">
+                            Patrick Naughton<sup>1, 2*</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.jindacui.com/">
+                            Jinda Cui<sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/karan-patel-479960a3/">
+                          Karankumar Patel<sup>2</sup>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.linkedin.com/in/soshi-iba-7090467/">
+                          Soshi Iba<sup>2</sup>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="list-inline">
+                    <li>
+                        <sup>1</sup><a href="https://illinois.edu/">UIUC</a>
+                    </li>
+                    <li>
+                        <sup>2</sup><a href="https://usa.honda-ri.com/">Honda Research Institute USA</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-12 text-center">
+                <p>
+                    <sup>*</sup>This work was completed during an internship at Honda Research Institute USA
+                </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+                <div class="col-md-4 col-md-offset-4 text-center">
+                    <ul class="nav nav-pills nav-justified">
+                        <li>
+                            <a href="">
+                            <h4><strong>Paper</strong></h4>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                            <h4><strong>Video</strong></h4>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Abstract
+                </h3>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                    <source src="video/feature_video.mp4" type="video/mp4" />
+                </video><br>
+                <p class="text-justify">
+                    Dexterous robot hand teleoperation allows for long-range 
+                    transfer of human manipulation expertise, and could 
+                    simultaneously provide a way for humans to teach these 
+                    skills to robots. However, current methods struggle to 
+                    reproduce the functional workspace of the human hand, often 
+                    limiting them to simple grasping tasks. We present a novel 
+                    method for finger-gaited manipulation with multi-fingered 
+                    robot hands. Our method provides the operator enhanced 
+                    flexibility in making contacts by expanding the reachable 
+                    workspace of the robot hand through residual Gaussian 
+                    Process learning. We also assist the operator in 
+                    maintaining stable contacts with the object by allowing 
+                    them to constrain fingertips of the hand to move in 
+                    concert. Extensive quantitative evaluations show that our 
+                    method significantly increases the reachable workspace of 
+                    the robot hand and enables the completion of novel 
+                    dexterous finger gaiting tasks.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Video
+                </h3>
+                <video id="v0" width="100%" controls>
+                    <source src="video/respilot_supplementary_video.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+                <p class="text-justify">
+                    We test our retargeter with two different subjects on 6
+                    challenging in-hand manipulation tasks. Each subject
+                    attempted all 6 tasks both with and without the use of
+                    fingertip constraints.
+                </p>                
+                <br>
+                <div>
+                    <table>
+                        <tr>
+                            <td>
+                                <p>
+                                    Subject 0 Without Constraints
+                                </p>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_h_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_v_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/p_to_q_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/card_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/wrench_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/pivot_unconstrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="margin-right:20px;">
+                                    Subject 0 With Constraints
+                                </p>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_h_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_v_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/p_to_q_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/card_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/wrench_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/pivot_constrained_subject_0.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p>
+                                    Subject 1 Without Constraints
+                                </p>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_h_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_v_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/p_to_q_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/card_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/wrench_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/pivot_unconstrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p style="margin-right:20px;">
+                                    Subject 1 With Constraints
+                                </p>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_h_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/rot_v_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/p_to_q_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/card_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/wrench_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                            <td>
+                                <video id="v0" width="100%" autoplay loop muted controls>
+                                    <source src="video/pivot_constrained_subject_1.mp4" type="video/mp4" />
+                                  </video>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Workspace Measurement
+                </h3>
+                <p>
+                    We estimated the reachable workspace of 5 different
+                    operators' hands to quantify the workspace of the robot
+                    hand under different retargeters. Operators mimicked the
+                    motions in this video three times in a row while wearing
+                    a Manus Quantum Metaglove to fully cover the workspace of
+                    each of their fingers.
+                </p>
+                <video id="v0" width="100%" autoplay loop muted controls>
+                    <source src="video/workspace_video.mp4" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    BibTex
+                </h3>
+<pre>
+<code>@inproceedings{naughton2024respilot,
+    title={ResPilot: Teleoperated Finger Gaiting via Gaussian Process Residual Learning},
+    author={Patrick Naughton and Jinda Cui and Karankumar Patel and Soshi Iba},
+    booktitle={{Conference on Robot Learning (CoRL)}},
+    year={2024}
+}</code>
+</pre>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Acknowledgements
+                </h3>
+                <p class="text-justify">
+                    We'd like to thank <a href="https://benevans.zip/">Benjamin Evans</a> for thoughtful comments on the paper and naming the method.<br/>
+                    The website template was borrowed from <a href="https://jonbarron.info/">Jon Barron</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
