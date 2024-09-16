@@ -138,18 +138,18 @@
                 <h3>
                     Method
                 </h3>
+                <img src="img/method.png" width="100%"/>
+                <p>
+                    We use a small (N=24) set of labeled calibration pairs to train
+                    a residual Gaussian Process that adjusts the output of an
+                    optimization-based retargeter to expand its workspace, enabling
+                    more complex manipulation strategies. Collecting this data and
+                    training the GP takes approximately 5 minutes for a new
+                    operator. We also allow the operator to enable fingertip 
+                    constraints by tapping a footpedal to constrain the index,
+                    middle, or ring finger of the robot hand to pinch its thumb.
+                </p>
             </div>
-            <img src="img/method.png"/>
-            <p>
-                We use a small (N=24) set of labeled calibration pairs to train
-                a residual Gaussian Process that adjusts the output of an
-                optimization-based retargeter to expand its workspace, enabling
-                more complex manipulation strategies. Collecting this data and
-                training the GP takes approximately 5 minutes for a new
-                operator. We also allow the operator to enable fingertip 
-                constraints by tapping a footpedal to constrain the index,
-                middle, or ring finger of the robot hand to pinch its thumb.
-            </p>
         </div>
 
         <div class="row">
@@ -157,23 +157,23 @@
                 <h3>
                     Results
                 </h3>
+                <img src="img/results_score.png" width="100%"/>
+                <p>
+                    The success rates of two operators on 6 difficult
+                    in-hand manipulation tasks both with and without the use of
+                    fingertip constraints. Error bars show the standard error
+                    of the measurement. When given the choice between constraints,
+                    operators <b>succeed on average 80%</b> of the time.
+                </p>
+                <img src="img/results_time.png" width="100%"/>
+                <p>
+                    The average time each operator took to successfully complete
+                    the tasks. Operators can complete these tasks relatively
+                    quickly, taking on average 43 seconds and at most 139 seconds.
+                    This is fast enough to quickly collect many successful demos
+                    of the tasks.
+                </p>
             </div>
-            <img src="img/results_score.png"/>
-            <p>
-                The success rates of two operators on 6 difficult
-                in-hand manipulation tasks both with and without the use of
-                fingertip constraints. Error bars show the standard error
-                of the measurement. When given the choice between constraints,
-                operators <b>succeed on average 80%</b> of the time.
-            </p>
-            <img src="img/results_time.png"/>
-            <p>
-                The average time each operator took to successfully complete
-                the tasks. Operators can complete these tasks relatively
-                quickly, taking on average 43 seconds and at most 139 seconds.
-                This is fast enough to quickly collect many successful demos
-                of the tasks.
-            </p>
         </div>
 
         <div class="row">
