@@ -110,7 +110,7 @@
                 <video id="v0" width="100%" autoplay loop muted controls>
                     <source src="video/feature_video.mp4" type="video/mp4" />
                 </video><br>
-                <p class="text-justify">
+                <p class="text-justify" style="font-size:2em;">
                     Dexterous robot hand teleoperation allows for long-range 
                     transfer of human manipulation expertise, and could 
                     simultaneously provide a way for humans to teach these 
@@ -126,16 +126,68 @@
                     them to constrain fingertips of the hand to move in 
                     concert. Extensive quantitative evaluations show that our 
                     method significantly increases the reachable workspace of 
-                    the robot hand and enables the completion of novel 
-                    dexterous finger gaiting tasks.
+                    the robot hand and <b>enables the completion of novel 
+                    dexterous finger gaiting tasks.</b>
                 </p>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Method
+                </h3>
+            </div>
+            <img href="img/method.png"/>
+            <p>
+                We use a small (N=24) set of labeled calibration pairs to train
+                a residual Gaussian Process that adjusts the output of an
+                optimization-based retargeter to expand its workspace, enabling
+                more complex manipulation strategies. Collecting this data and
+                training the GP takes approximately 5 minutes for a new
+                operator. We also allow the operator to enable fingertip 
+                constraints by tapping a footpedal to constrain the index,
+                middle, or ring finger of the robot hand to pinch its thumb.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Results
+                </h3>
+            </div>
+            <img href="img/results_score.png"/>
+            <p>
+                The success rates of two operators on 6 difficult
+                in-hand manipulation tasks both with and without the use of
+                fingertip constraints. Error bars show the standard error
+                of the measurement. When given the choice between constraints,
+                operators <b>succeed on average 80%</b> of the time.
+            </p>
+            <img href="img/results_time.png"/>
+            <p>
+                The average time each operator took to successfully complete
+                the tasks. Operators can complete these tasks relatively
+                quickly, taking on average 43 seconds and at most 139 seconds.
+                This is fast enough to quickly collect many successful demos
+                of the tasks.
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <h3>
+                    Supplementary Material
+                </h3>
             </div>
         </div>
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
+                <h4>
                     Video
-                </h3>
+                </h4>
                 <video id="v0" width="100%" controls>
                     <source src="video/respilot_supplementary_video.mp4" type="video/mp4" />
                 </video>
@@ -146,9 +198,9 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Results
-                </h3>
+                <h4>
+                    Uncut Experiment Videos
+                </h4>
                 <p class="text-justify">
                     We test our retargeter with two different subjects on 6
                     challenging in-hand manipulation tasks. Each subject
@@ -158,6 +210,26 @@
                 <br>
                 <div>
                     <table>
+                        <tr>
+                            <td>
+                                <p>Cube Rot H</p>
+                            </td>
+                            <td>
+                                <p>Cube Rot H</p>
+                            </td>
+                            <td>
+                                <p>Palm-to-Quadpod</p>
+                            </td>
+                            <td>
+                                <p>Card Pickup</p>
+                            </td>
+                            <td>
+                                <p>Wrench Pickup</p>
+                            </td>
+                            <td>
+                                <p>Controlled Pivot</p>
+                            </td>
+                        </tr>
                         <tr>
                             <td>
                                 <p>
@@ -313,9 +385,9 @@
 
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
-                <h3>
-                    Workspace Measurement
-                </h3>
+                <h4>
+                    Workspace Measurement Video
+                </h4>
                 <p>
                     We estimated the reachable workspace of 5 different
                     operators' hands to quantify the workspace of the robot
